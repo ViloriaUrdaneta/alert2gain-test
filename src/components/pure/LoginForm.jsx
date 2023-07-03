@@ -112,7 +112,7 @@ const LoginForm = ({ setOpenModal }) => {
                         <div>
                             <button
                                 type='submit'
-                                className='w-80 h-10 bg-[#2738F5] text-white rounded-md hover:opacity-80'
+                                className='w-80 h-10 bg-primary text-white rounded-md hover:opacity-80'
                             >
                                 Iniciar Sesión
                             </button>

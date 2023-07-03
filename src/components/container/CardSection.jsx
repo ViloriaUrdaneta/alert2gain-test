@@ -35,11 +35,48 @@ const CardSection = () => {
 
     return (
         <div>
+            <h2 class="text-5xl font-medium leading-tight pt-20 text-center text-gray-700">Listado de plataformas</h2>
+            <div className="flex justify-center mt-2 mb-7  text-gray-700">
+                <span>
+                    Número de plataformas: {totalRecords}
+                </span>
+            </div>
             <div className="min-h-screen flex items-center justify-center">
                 <div className="grid grid-cols-5 gap-4">
                     {platforms?.map((platform) => (
                         <PlatformCard key={platform.id} platform={platform} />
                     ))}
+                </div>
+            </div>
+            <div className='bg-secondary pb-10 mt-10'>
+            <div className='flex flex-row justify-end pt-5 mr-10 xs:mt-0 '>
+                <div className="flex mt-4 text-gray-700 mr-5">
+                    <span className="mr-2">Entradas por página:</span>
+                    <select
+                        className="border border-gray-700 rounded px-3 py-1 text-gray-700"
+                        value={pageSize}
+                        onChange={handlePageSizeChange}
+                    >
+                        <option value={10}>10</option>
+                        <option value={20}>20</option>
+                        <option value={50}>50</option>
+                    </select>
+                </div>
+                <div className="flex justify-center mt-4 text-gray-700 mr-10">
+                    <span className="mr-2">Número de flota: </span>
+                    <select
+                        className="border border-gray-700 rounded px-3 py-1 text-gray-700"
+                        onChange={handleFleetChange}
+                    >
+                        <option value={"ALL"}>all</option>
+                        <option value={'Flota 1'}>1</option>
+                        <option value={'Flota 2'}>2</option>
+                        <option value={'Flota 3'}>3</option>
+                        <option value={'Flota 4'}>4</option>
+                        <option value={'Flota 5'}>5</option>
+                        <option value={'Flota 6'}>6</option>
+                        <option value={'Flota 7'}>7</option>
+                    </select>
                 </div>
             </div>
             <div className="flex flex-col items-center justify-center mt-4">
@@ -48,7 +85,7 @@ const CardSection = () => {
                 </span>
                 <div class="inline-flex mt-2 xs:mt-0">
                     <button 
-                        className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                        className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-primary rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                         onClick={() => setPageNumber(pageNumber - 1)}
                         disabled={pageNumber === 1}
                     >
@@ -56,7 +93,7 @@ const CardSection = () => {
                         Prev
                     </button>
                     <button 
-                        className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-gray-800 border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                        className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-primary border-0 border-l border-gray-700 rounded-r hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                         onClick={() => setPageNumber(pageNumber + 1)}
                         disabled={pageNumber === totalPages}
                     >
@@ -65,38 +102,6 @@ const CardSection = () => {
                     </button>
                 </div>
             </div>
-            <div className="flex justify-center mt-4 text-gray-700">
-                <span className="mr-2">Entradas por página:</span>
-                <select
-                    className="border border-gray-700 rounded px-3 py-1 text-gray-700"
-                    value={pageSize}
-                    onChange={handlePageSizeChange}
-                >
-                    <option value={10}>10</option>
-                    <option value={20}>20</option>
-                    <option value={50}>50</option>
-                </select>
-            </div>
-            <div className="flex justify-center mt-4 text-gray-700">
-                <span className="mr-2">Número de flota: </span>
-                <select
-                    className="border border-gray-700 rounded px-3 py-1 text-gray-700"
-                    onChange={handleFleetChange}
-                >
-                    <option value={"ALL"}>all</option>
-                    <option value={'Flota 1'}>1</option>
-                    <option value={'Flota 2'}>2</option>
-                    <option value={'Flota 3'}>3</option>
-                    <option value={'Flota 4'}>4</option>
-                    <option value={'Flota 5'}>5</option>
-                    <option value={'Flota 6'}>6</option>
-                    <option value={'Flota 7'}>7</option>
-                </select>
-            </div>
-            <div className="flex justify-center mt-2">
-                <span>
-                    Número de entradas: {totalRecords}
-                </span>
             </div>
         </div>
     );

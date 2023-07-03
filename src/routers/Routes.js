@@ -5,6 +5,7 @@ import { AuthContext } from '../context/authContext';
 import Home from '../components/container/Home';
 import PlatformDetails from '../components/container/PlatformDetails';
 import ProtectedRoutes from './ProtectedRoute';
+import Layout from './Layout';
 
 
 const RoutesApp = () => {
@@ -14,17 +15,19 @@ const RoutesApp = () => {
     return (
         <div>
             <Suspense>
-                <Routes>
-                    <Route path='/' element={<Home/>}/>
-                    <Route 
-                        path='/platform/:id' 
-                        element={
-                            <ProtectedRoutes isAutenticated={token}>
-                                <PlatformDetails/>
-                            </ProtectedRoutes>
-                        }
-                    />
-                </Routes>
+                <Layout>
+                    <Routes>
+                        <Route path='/' element={<Home/>}/>
+                        <Route 
+                            path='/platform/:id' 
+                            element={
+                                <ProtectedRoutes isAutenticated={token}>
+                                    <PlatformDetails/>
+                                </ProtectedRoutes>
+                            }
+                        />
+                    </Routes>
+                </Layout>
             </Suspense>
         </div>
     )

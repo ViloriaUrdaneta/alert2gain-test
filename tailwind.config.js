@@ -22,7 +22,7 @@ module.exports = {
       themes: [
         {
           mytheme: {
-            primary: "#2738f5",
+            primary: "#000080",
             secondary: "#e2f2fe",
             accent: "#008ff7",
             darkBlue: "#140b34",
