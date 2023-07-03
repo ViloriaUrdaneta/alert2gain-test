@@ -12,7 +12,6 @@ const PlatformDetails = () => {
     const { data: platformsDetails, isLoading: platformsLoading, hasError: platformsError } = useFetch(
         `${process.env.REACT_APP_BACKEND_URL}/Platforms/${id}`
     );
-    console.log(platformsDetails)
     
     const handleLastReport = () => {
         fetch(platformsDetails?.data?.lastReport)
@@ -74,43 +73,3 @@ const PlatformDetails = () => {
 
 export default PlatformDetails;
 
-/**
- * <div className='pt-8'>
-  <h2 className="text-5xl font-medium leading-tight pt-20 text-center">Detalles de {platformsDetails?.data?.name}</h2> 
-  <div className="grid grid-cols-2 gap-4 mt-10">
-    <img
-      src={platformsDetails?.data?.img}
-      className="h-auto max-w-full rounded-lg shadow-lg dark:shadow-black/30"
-      alt="..."     
-    />
-    <div>
-      <h3 className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-        {platformsDetails?.data?.fleet}
-      </h3>
-      <button
-        type="button"
-        className="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-        data-te-ripple-init
-        data-te-ripple-color="light"
-        onClick={handleLastReport}
-      >
-        {showReport ? "Ocultar Reporte" : "Mostrar Reporte"}
-      </button>
-    </div>
-  </div>
-  <div>
-    {showReport && (
-      <div className="mt-4">
-        <h2>Contenido de la URL de S3:</h2>
-        <div dangerouslySetInnerHTML={{ __html: s3Content }} />
-      </div>
-    )}
-  </div>
-  <ul className="w-96">
-    {platformsDetails?.data?.sensors.map((sensor) => (
-      <Sensor key={sensor.id} sensor={sensor} />
-    ))}
-  </ul>
-</div>
-
- */

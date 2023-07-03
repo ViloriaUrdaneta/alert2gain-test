@@ -43,27 +43,3 @@ const Navbar = () => {
 
 export default Navbar;
 
-/**
- * 
- * <nav className='flex items-center h-20 text-white justify-between px-2 py-3 bg-[#2738F5]'>
-                    <ul className=' md:flex gap-4'>
-                    {token ? (
-                        <UserNavbar />
-                    ) : (
-                        <>
-                            <AuthNavbar
-                                handleOpenModal={handleOpenModal}
-                            />
-                            
-                        </>
-                    )}
-                    {openModal && (
-                        <LoginModal
-                        handleCloseModal={handleCloseModal}
-                        setOpenModal={setOpenModal}
-                        />
-                    )}
-                </ul>
-            </nav>
- * 
- */
